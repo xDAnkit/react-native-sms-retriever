@@ -19,6 +19,8 @@ With the [SMS Retriever API](https://developers.google.com/identity/sms-retrieve
 
 ## Installation
 
+[![Join the chat at https://gitter.im/react-native-sms-retriever/community](https://badges.gitter.im/react-native-sms-retriever/community.svg)](https://gitter.im/react-native-sms-retriever/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ```bash
 npm install --save react-native-sms-retriever
 react-native link react-native-sms-retriever
