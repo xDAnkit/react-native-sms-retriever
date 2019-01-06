@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Android SMS Retriever API for React Native",
   "homepage": "https://bruno-furtado.github.io/react-native-sms-retriever",
-  "readme": "https://bruno-furtado.github.io/react-native-sms-retriever#readme",
+  "readme": "https://github.com/Bruno-Furtado/react-native-sms-retriever#readme",
   "license": "MIT",
   "author": "Bruno Tortato Furtado <bruno@furtado.me> (https://www.furtado.me/)",
   "main": "index.js",
