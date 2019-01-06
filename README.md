@@ -21,17 +21,10 @@ With the [SMS Retriever API](https://developers.google.com/identity/sms-retrieve
 
 ```bash
 npm install --save react-native-sms-retriever
-```
-
-## Linking
-
-#### Using react-native-cli
-
-```bash
 react-native link react-native-sms-retriever
 ```
 
-#### Manual
+#### Manual (if you don't like to use react-native link)
 
 1.  Add the following lines to `android/settings.gradle`:
 
