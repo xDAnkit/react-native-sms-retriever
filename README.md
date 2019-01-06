@@ -1,5 +1,6 @@
 [![Platform][platform-badge]][platform-url]
 [![License][license-badge]][license-url]
+[![Gitter][gitter-badge]][gitter-url]
 
 <p align="center">
   <img src="https://firebasestorage.googleapis.com/v0/b/furtado-a45bf.appspot.com/o/GitHub%2Freact-native-sms-retriever%2Fcover.png?alt=media&token=c1d91ddc-0100-46d3-ba6a-36666e1495d5" alt="Cover" title="React Native SMS Retriever" width="800">
@@ -165,3 +166,5 @@ This code is distributed under the terms and conditions of the [MIT License](htt
 [platform-url]: https://developer.android.com/
 [license-badge]: https://img.shields.io/badge/license-MIT-orange.svg?style=flat
 [license-url]: https://github.com/Bruno-Furtado/react-native-sms-retriever/blob/master/LICENSE
+[gitter-badge]: https://badges.gitter.im/react-native-sms-retriever/community.svg
+[gitter-url]: https://gitter.im/react-native-sms-retriever/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
