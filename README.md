@@ -149,10 +149,6 @@ Start to listen for SMS messages.
 
 Get the SMS content. Get the SMS content with: `event.message`.
 
-| Param       | Type   | Description                                                  |
-| ----------- | ------ | ------------------------------------------------------------ |
-| message     | String | SMS Content (if content is empty, the message is empty too). |
-
 | Error Param |  Type  | Description                                                  |
 | ----------- | ------ | ------------------------------------------------------------ |
 | extras      | String | Sent only when there was a problem getting the SMS content.  |
@@ -162,14 +158,6 @@ Get the SMS content. Get the SMS content with: `event.message`.
 #### `removeSmsListener(): Void`
 
 Stop to listen for SMS messages.
-
-
-## Todolist
-
-- [ ] Create the documentation
-- [ ] Create the tests
-- [ ] Generate the [app hash string](https://developers.google.com/identity/sms-retriever/verify#computing_your_apps_hash_string)
-- [ ] Save the phone number with [Smart Lock for Passwords](https://developers.google.com/identity/sms-retriever/request#optional_save_the_phone_number_with_smart_lock_for_passwords)
 
 
 ## Change-log
