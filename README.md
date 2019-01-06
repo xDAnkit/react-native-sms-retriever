@@ -94,8 +94,6 @@ _onSmsListenerPressed = async () => {
 };
 ```
 
-> Access the [example](https://github.com/Bruno-Furtado/react-native-sms-retriever/blob/master/example) to see the more.
-
 #### About Phone
 
 To get the phone number, use a real device. The [SMS Retriever API](https://developers.google.com/identity/sms-retriever/overview) doesn't work very well with emulators.
