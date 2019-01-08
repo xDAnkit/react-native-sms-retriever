@@ -103,3 +103,7 @@ This code is distributed under the terms and conditions of the [MIT License](htt
 [downloads-url]: https://www.npmjs.com/package/react-native-sms-retriever
 [gitter-badge]: https://badges.gitter.im/react-native-sms-retriever/community.svg
 [gitter-url]: https://gitter.im/react-native-sms-retriever/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+<hr/>
+
+Made with ❤ in Curitiba 🇧🇷
