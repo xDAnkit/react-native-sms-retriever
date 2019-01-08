@@ -25,45 +25,7 @@ npm install --save react-native-sms-retriever
 react-native link react-native-sms-retriever
 ```
 
-#### Manual (if you don't like to use react-native link)
-
-1.  Add the following lines to `android/settings.gradle`:
-
-```gradle
-include ':react-native-sms-retriever'
-project(':react-native-sms-retriever').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sms-retriever/android')
-```
-
-2.  Add the compile line to the dependencies in `android/app/build.gradle`:
-
-```gradle
-dependencies {
-  // ...
-  compile project(':react-native-sms-retriever')
-}
-```
-
-3.  Add the import and link the package in `MainApplication.java`:
-
-```java
-import me.furtado.smsretriever.RNSmsRetrieverPackage; // <-- Add the import
-
-public class MainApplication extends Application implements ReactApplication {
-
-  // ...
-
-  @Override
-  protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-      new MainReactPackage(),
-      // ...
-      new RNSmsRetrieverPackage() // <-- Add it to the packages list
-    );
-  }
-
-  // ...
-}
-```
+> If you don't like to use `react-native link`, check [Manual Installation Wiki Page](https://github.com/Bruno-Furtado/react-native-sms-retriever/wiki/Manual-Installation).
 
 ## Basic Usage
 
@@ -95,61 +57,28 @@ _onSmsListenerPressed = async () => {
 };
 ```
 
-#### About Phone
-
-To get the phone number, use a real device. The [SMS Retriever API](https://developers.google.com/identity/sms-retriever/overview) doesn't work very well with emulators.
-
-#### About SMS 
-
-The [SMS Retriever API](https://developers.google.com/identity/sms-retriever/overview) has some rules for message. A valid verification message might look like the following:
-
-```txt
-<#> Your Example app code is: 123ABC78
-/SBnkJ8069Q
-```
-
-The `<#>` is required. The `/SBnkJ8069Q` is a hash string that identifies your app (in the case it's the hash of the [example](https://github.com/Bruno-Furtado/react-native-sms-retriever/blob/master/example) app). Too see how to generate the hash access [this link](https://developers.google.com/identity/sms-retriever/verify#1_construct_a_verification_message). Alternatively, you can get your app's hash string with the [AppSignatureHelper](https://github.com/googlesamples/android-credentials/blob/master/sms-verification/android/app/src/main/java/com/google/samples/smartlock/sms_verify/AppSignatureHelper.java) class.
+> If you have problems to get the SMS content, check the [SMS Rules Wiki Page](https://github.com/Bruno-Furtado/react-native-sms-retriever/wiki/SMS-Rules).
 
 
-## Methods and Errors
+## Methods
 
 #### `requestPhoneNumber(): Promise<String>`
 
 Obtain the user's phone number (using the hint picket).
 
-| Error Type                        | Error Message                                                |
-| --------------------------------- | ------------------------------------------------------------ |
-| ACTIVITY_NULL_ERROR_TYPE          | Activity is null.                                            |
-| ACTIVITY_RESULT_NOOK_ERROR_TYPE   | There was an error trying to get the phone number.           |
-| CONNECTION_SUSPENENDED_ERROR_TYPE | Client is temporarily in a disconnected state.               |
-| CONNECTION_FAILED_ERROR_TYPE      | There was an error connecting the client to the service.     |
-| SEND_INTENT_ERROR_TYPE            | There was an error trying to send intent.                    |
-| UNAVAILABLE_ERROR_TYPE            | Google Play Services is not available.                       |
-| UNSUPORTED_VERSION_ERROR_TYPE     | The device version of Google Play Services is not supported. |
-
 #### `startSmsRetriever(): Promise<Boolean>`
 
 Start to listen for SMS messages.
-
-| Error Type                        | Error Message                                                |
-| --------------------------------- | ------------------------------------------------------------ |
-| TASK_FAILURE_ERROR_TYPE           | Task failed.                                                 |
-| UNAVAILABLE_ERROR_TYPE            | Google Play Services is not available.                       |
-| UNSUPORTED_VERSION_ERROR_TYPE     | The device version of Google Play Services is not supported. |
 
 #### `addSmsListener(event: Function): Promise<Boolean>`
 
 Get the SMS content. Get the SMS content with: `event.message`.
 
-| Error Param |  Type  | Description                                                  |
-| ----------- | ------ | ------------------------------------------------------------ |
-| extras      | String | Sent only when there was a problem getting the SMS content.  |
-| status      | String | Sent only when status is not `OK` or `TIMEOUT`.              |
-| timeout     | String | Sent only when status is equals to `TIMEOUT`.                |
-
 #### `removeSmsListener(): Void`
 
 Stop to listen for SMS messages.
+
+> Check the erros of each method on [Erros Wiki Page](https://github.com/Bruno-Furtado/react-native-sms-retriever/wiki/Errors).
 
 
 ## Change-log
