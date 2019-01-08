@@ -1,5 +1,7 @@
 [![Platform][platform-badge]][platform-url]
 [![License][license-badge]][license-url]
+[![NPM][npm-badge]][npm-url]
+[![Downloads][downloads-badge]][downloads-url]
 [![Gitter][gitter-badge]][gitter-url]
 
 <p align="center">
@@ -95,5 +97,9 @@ This code is distributed under the terms and conditions of the [MIT License](htt
 [platform-url]: https://developer.android.com/
 [license-badge]: https://img.shields.io/badge/license-MIT-orange.svg?style=flat
 [license-url]: https://github.com/Bruno-Furtado/react-native-sms-retriever/blob/master/LICENSE
+[npm-badge]: https://badge.fury.io/js/react-native-sms-retriever.svg
+[npm-url]: https://badge.fury.io/js/react-native-sms-retriever
+[downloads-badge]: https://img.shields.io/npm/dw/react-native-sms-retriever.svg
+[downloads-url]: https://www.npmjs.com/package/react-native-sms-retriever
 [gitter-badge]: https://badges.gitter.im/react-native-sms-retriever/community.svg
 [gitter-url]: https://gitter.im/react-native-sms-retriever/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
