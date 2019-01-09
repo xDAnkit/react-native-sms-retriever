@@ -64,12 +64,12 @@ _onSmsListenerPressed = async () => {
 
 ## Methods
 
-| Method                          | Return             | Description                                                     |
-| :------------------------------ | :----------------: | :-------------------------------------------------------------- |
-| requestPhoneNumber()            | `Promise<String>`  | Obtain the user's phone number (using the hint picket).         |
-| startSmsRetriever()             | `Promise<Boolean>` | Start to listen for SMS messages.                               |
-| addSmsListener(event: Function) | `Promise<Boolean>` | Get the SMS content. Get the SMS content with: `event.message`. |
-| removeSmsListener()             | `Void`             | Stop to listen for SMS messages.                                |
+| Method                          | Return             | Description                                             |
+| :------------------------------ | :----------------: | :------------------------------------------------------ |
+| requestPhoneNumber()            | `Promise<String>`  | Obtain the user's phone number (using the hint picket). |
+| startSmsRetriever()             | `Promise<Boolean>` | Start to listen for SMS messages.                       |
+| addSmsListener(event: Function) | `Promise<Boolean>` | Get the SMS content with: `event.message`.              |
+| removeSmsListener()             | `Void`             | Stop to listen for SMS messages.                        |
 
 > Check the erros of each method on [Erros Wiki Page](https://github.com/Bruno-Furtado/react-native-sms-retriever/wiki/Errors).
 
