@@ -86,7 +86,7 @@ This code is distributed under the terms and conditions of the [MIT License](htt
 
 [platform-badge]: https://img.shields.io/badge/platform-Android-green.svg?style=flat
 [platform-url]: https://developer.android.com/
-[license-badge]: https://img.shields.io/badge/license-MIT-orange.svg?style=flat
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: https://github.com/Bruno-Furtado/react-native-sms-retriever/blob/master/LICENSE
 [npm-badge]: https://badge.fury.io/js/react-native-sms-retriever.svg
 [npm-url]: https://badge.fury.io/js/react-native-sms-retriever
