@@ -65,7 +65,7 @@ _onSmsListenerPressed = async () => {
 ## Methods
 
 | Method                          | Return             | Description                                             |
-| :------------------------------ | :----------------: | :------------------------------------------------------ |
+| :------------------------------ | :----------------- | :------------------------------------------------------ |
 | requestPhoneNumber()            | `Promise<String>`  | Obtain the user's phone number (using the hint picket). |
 | startSmsRetriever()             | `Promise<Boolean>` | Start to listen for SMS messages.                       |
 | addSmsListener(event: Function) | `Promise<Boolean>` | Get the SMS content with: `event.message`.              |
