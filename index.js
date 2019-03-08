@@ -8,6 +8,6 @@ const SmsRetrieverModule = (Platform.OS === "ios") ? null : {
   startSmsRetriever: RNSmsRetrieverModule.startSmsRetriever,
   addSmsListener: (callback) => DeviceEventEmitter.addListener(EVEN_LISTENER, callback),
   removeSmsListener: () => DeviceEventEmitter.removeAllListeners(EVEN_LISTENER)
-}
+};
 
 export default SmsRetrieverModule;
