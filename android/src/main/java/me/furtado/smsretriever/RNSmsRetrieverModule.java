@@ -1,7 +1,6 @@
 package me.furtado.smsretriever;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.facebook.react.bridge.ActivityEventListener;
@@ -17,11 +16,7 @@ final class RNSmsRetrieverModule extends ReactContextBaseJavaModule {
 
   RNSmsRetrieverModule(@NonNull final ReactApplicationContext context) {
     super(context);
-
     mSmsHelper = new SmsHelper(context);
-
-    final ActivityEventListener eventListener = mPhoneNumberHelper.getActivityEventListener();
-    context.addActivityEventListener(eventListener);
   }
 
   //region - ReactContextBaseJavaModule
@@ -39,8 +34,19 @@ final class RNSmsRetrieverModule extends ReactContextBaseJavaModule {
   @SuppressWarnings("unused")
   @ReactMethod
   public void requestPhoneNumber(final Promise promise) {
-    final Context context = getReactApplicationContext();
+    final ReactApplicationContext context = getReactApplicationContext();
     final Activity activity = getCurrentActivity();
+    final ActivityEventListener eventListener = mPhoneNumberHelper.getActivityEventListener();
+
+    context.addActivityEventListener(eventListener);
+
+    mPhoneNumberHelper.setListener(new PhoneNumberHelper.Listener() {
+      @Override
+      public void phoneNumberResultReceived() {
+        context.removeActivityEventListener(eventListener);
+      }
+    });
+
     mPhoneNumberHelper.requestPhoneNumber(context, activity, promise);
   }
 

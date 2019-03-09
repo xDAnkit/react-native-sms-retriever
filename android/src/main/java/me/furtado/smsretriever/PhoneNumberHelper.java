@@ -25,7 +25,7 @@ final class PhoneNumberHelper {
 
     private static final String ACTIVITY_NULL_ERROR_TYPE = "ACTIVITY_NULL_ERROR_TYPE";
     private static final String ACTIVITY_RESULT_NOOK_ERROR_TYPE = "ACTIVITY_RESULT_NOOK_ERROR_TYPE";
-    private static final String CONNECTION_SUSPENENDED_ERROR_TYPE = "CONNECTION_SUSPENENDED_ERROR_TYPE";
+    private static final String CONNECTION_SUSPENDED_ERROR_TYPE = "CONNECTION_SUSPENDED_ERROR_TYPE";
     private static final String CONNECTION_FAILED_ERROR_TYPE = "CONNECTION_FAILED_ERROR_TYPE";
     private static final String SEND_INTENT_ERROR_TYPE = "SEND_INTENT_ERROR_TYPE";
 
@@ -37,6 +37,7 @@ final class PhoneNumberHelper {
 
     private GoogleApiClient mGoogleApiClient;
     private Promise mPromise;
+    private Listener mListener;
 
 
     PhoneNumberHelper() { }
@@ -47,8 +48,13 @@ final class PhoneNumberHelper {
         return mActivityEventListener;
     }
 
+    void setListener(@NonNull final Listener listener) {
+        mListener = listener;
+    }
+
     void requestPhoneNumber(@NonNull final Context context, final Activity activity, final Promise promise) {
         if (promise == null) {
+            callAndResetListener();
             return;
         }
 
@@ -56,16 +62,19 @@ final class PhoneNumberHelper {
 
         if (!GooglePlayServicesHelper.isAvailable(context)) {
             promiseReject(GooglePlayServicesHelper.UNAVAILABLE_ERROR_TYPE, GooglePlayServicesHelper.UNAVAILABLE_ERROR_MESSAGE);
+            callAndResetListener();
             return;
         }
 
         if (!GooglePlayServicesHelper.hasSupportedVersion(context)) {
             promiseReject(GooglePlayServicesHelper.UNSUPORTED_VERSION_ERROR_TYPE, GooglePlayServicesHelper.UNSUPORTED_VERSION_ERROR_MESSAGE);
+            callAndResetListener();
             return;
         }
 
         if (activity == null) {
             promiseReject(ACTIVITY_NULL_ERROR_TYPE, ACTIVITY_NULL_ERROR_MESSAGE);
+            callAndResetListener();
             return;
         }
 
@@ -83,6 +92,7 @@ final class PhoneNumberHelper {
                     REQUEST_PHONE_NUMBER_REQUEST_CODE, null, 0, 0, 0);
         } catch (IntentSender.SendIntentException e) {
             promiseReject(SEND_INTENT_ERROR_TYPE, SEND_INTENT_ERROR_MESSAGE);
+            callAndResetListener();
         }
     }
 
@@ -106,6 +116,13 @@ final class PhoneNumberHelper {
         }
 
         return mGoogleApiClient;
+    }
+
+    private void callAndResetListener() {
+        if (mListener != null) {
+            mListener.phoneNumberResultReceived();
+            mListener = null;
+        }
     }
 
     //endregion
@@ -136,7 +153,8 @@ final class PhoneNumberHelper {
 
         @Override
         public void onConnectionSuspended(int i) {
-            promiseReject(CONNECTION_SUSPENENDED_ERROR_TYPE, CONNECTION_SUSPENENDED_ERROR_MESSAGE);
+            promiseReject(CONNECTION_SUSPENDED_ERROR_TYPE, CONNECTION_SUSPENENDED_ERROR_MESSAGE);
+            callAndResetListener();
         }
     };
 
@@ -144,6 +162,7 @@ final class PhoneNumberHelper {
         @Override
         public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
             promiseReject(CONNECTION_FAILED_ERROR_TYPE, CONNECTION_FAILED_ERROR_MESSAGE);
+            callAndResetListener();
         }
     };
 
@@ -157,13 +176,25 @@ final class PhoneNumberHelper {
                     final Credential credential = data.getParcelableExtra(Credential.EXTRA_KEY);
                     final String phoneNumber = credential.getId();
                     promiseResolve(phoneNumber);
+                    callAndResetListener();
                     return;
                 }
             }
 
             promiseReject(ACTIVITY_RESULT_NOOK_ERROR_TYPE, ACTIVITY_RESULT_NOOK_ERROR_MESSAGE);
+            callAndResetListener();
         }
     };
+
+    //endregion
+
+    //region - Classes
+
+    public interface Listener {
+
+        void phoneNumberResultReceived();
+
+    }
 
     //endregion
 
