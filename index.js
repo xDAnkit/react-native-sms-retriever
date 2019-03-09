@@ -1,9 +1,9 @@
-import { DeviceEventEmitter, NativeModules } from 'react-native';
+import { DeviceEventEmitter, NativeModules, Platform } from 'react-native';
 
 const { RNSmsRetrieverModule } = NativeModules;
 const EVEN_LISTENER = 'me.furtado.smsretriever:SmsEvent';
 
-const SmsRetrieverModule = {
+const SmsRetrieverModule = (Platform.OS === "ios") ? null : {
   requestPhoneNumber: RNSmsRetrieverModule.requestPhoneNumber,
   startSmsRetriever: RNSmsRetrieverModule.startSmsRetriever,
   addSmsListener: (callback) => DeviceEventEmitter.addListener(EVEN_LISTENER, callback),
