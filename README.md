@@ -2,6 +2,7 @@
 [![License][license-badge]][license-url]
 [![NPM][npm-badge]][npm-url]
 [![Downloads][downloads-badge]][downloads-url]
+[![Codebeat][codebeat-badge]][codebeat-url]
 [![Gitter][gitter-badge]][gitter-url]
 
 <p align="center">
@@ -92,6 +93,8 @@ This code is distributed under the terms and conditions of the [MIT License](htt
 [npm-url]: https://badge.fury.io/js/react-native-sms-retriever
 [downloads-badge]: https://img.shields.io/npm/dw/react-native-sms-retriever.svg
 [downloads-url]: https://www.npmjs.com/package/react-native-sms-retriever
+[codebeat-badge]:https://codebeat.co/badges/572df1cd-404f-4942-abba-2ccb6e0bf040
+[codebeat-url]: https://codebeat.co/projects/github-com-bruno-furtado-react-native-sms-retriever-master
 [gitter-badge]: https://badges.gitter.im/react-native-sms-retriever/community.svg
 [gitter-url]: https://gitter.im/react-native-sms-retriever/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
