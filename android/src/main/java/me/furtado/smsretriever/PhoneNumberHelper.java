@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.BaseActivityEventListener;
@@ -40,7 +42,8 @@ final class PhoneNumberHelper {
     private Listener mListener;
 
 
-    PhoneNumberHelper() { }
+    PhoneNumberHelper() {
+    }
 
     //region - Package Access
 
@@ -107,11 +110,10 @@ final class PhoneNumberHelper {
             builder = builder.addConnectionCallbacks(mApiClientConnectionCallbacks);
             builder = builder.addApi(Auth.CREDENTIALS_API);
 
-            if (activity instanceof FragmentActivity) {
+            /*if (activity instanceof FragmentActivity) {
                 final FragmentActivity fragmentActivity = (FragmentActivity) activity;
                 builder = builder.enableAutoManage(fragmentActivity, mApiClientOnConnectionFailedListener);
-            }
-
+            }*/
             mGoogleApiClient = builder.build();
         }
 
@@ -149,7 +151,8 @@ final class PhoneNumberHelper {
 
     private final GoogleApiClient.ConnectionCallbacks mApiClientConnectionCallbacks = new GoogleApiClient.ConnectionCallbacks() {
         @Override
-        public void onConnected(@Nullable Bundle bundle) { }
+        public void onConnected(@Nullable Bundle bundle) {
+        }
 
         @Override
         public void onConnectionSuspended(int i) {
